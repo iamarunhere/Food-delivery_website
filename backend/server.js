@@ -7,7 +7,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
 import "dotenv/config";
-import cartRouter from "./routes/cartRoute.js";
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -43,7 +42,7 @@ const getDB = () => {
 // Middleware
 app.use(express.json());
 app.use(cors());
-app.use(express.static("uploads")); // Serve images statically
+app.use("/uploads", express.static("uploads")); // Serve images statically
 
 // Image Storage engine
 const Storage = multer.diskStorage({
@@ -206,6 +205,3 @@ connectDB()
   .catch((error) => {
     console.error("Failed to connect to MongoDB:", error);
   });
-//api end point for cartRouter
-
-app.use("/api/cart", cartRouter);
