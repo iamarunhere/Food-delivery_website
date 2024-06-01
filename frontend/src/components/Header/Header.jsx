@@ -11,7 +11,9 @@ const Header = () => {
           favorite meals are just a click away. Fast, fresh, and delivered to
           your door—satisfy your cravings effortlessly
         </p>
-        <button>View Menu</button>
+        <a href="#food-items">
+          <button>View Menu</button>
+        </a>
       </div>
     </div>
   );

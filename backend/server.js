@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { MongoClient, ObjectId } from "mongodb";
@@ -6,15 +7,12 @@ import fs from "fs";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
-import "dotenv/config";
 
 const app = express();
 const port = process.env.PORT || 4000;
 
 // MongoDB connection
-const connectionString =
-  "mongodb+srv://arunmuthaiah007:vcjn4b84gUTVoPSU@cluster0.y84b9vz.mongodb.net/Arunkumar?retryWrites=true&w=majority";
-
+const connectionString = process.env.MONGO_URI;
 let db;
 
 const connectDB = async () => {
